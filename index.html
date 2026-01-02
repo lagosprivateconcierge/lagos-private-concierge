@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Lagos Private Concierge</title>
-  <meta name="description" content="Luxury concierge in Lagos — drivers, nightlife, reservations, experiences, villas, airport pickup. Fast, discreet, reliable." />
+  <meta name="description" content="Luxury concierge in Lagos — airport pickup, private drivers, nightlife & VIP tables, reservations, experiences, and Detty December trip planning." />
   <style>
     :root{
       --bg:#0b0f14;
-      --panel:#0f1621;
-      --panel2:#0c131d;
       --text:#e9eef6;
       --muted:#a9b4c4;
       --brand:#7c5cff;
@@ -38,9 +36,7 @@
       border-bottom: 1px solid var(--stroke);
     }
     .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
-    .brand{
-      display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;
-    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.2px;}
     .logo{
       width:34px; height:34px; border-radius:12px;
       background: linear-gradient(135deg, rgba(124,92,255,.9), rgba(34,197,94,.8));
@@ -50,14 +46,12 @@
     .nav-links a{color:var(--muted); font-weight:600; font-size:14px;}
     .nav-links a:hover{color:var(--text)}
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:999px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:999px;
       border:1px solid var(--stroke);
       background: rgba(255,255,255,.06);
       color:var(--text);
-      font-weight:700;
+      font-weight:800;
       cursor:pointer;
       transition:.2s ease;
       user-select:none;
@@ -74,15 +68,9 @@
       background: linear-gradient(135deg, rgba(34,197,94,.9), rgba(34,197,94,.55));
       box-shadow: 0 16px 40px rgba(34,197,94,.16);
     }
-    .hero{
-      padding:64px 0 28px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:28px;
-      align-items:stretch;
-    }
+
+    .hero{padding:64px 0 28px;}
+    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:stretch;}
     @media (max-width: 900px){
       .hero-grid{grid-template-columns:1fr;}
       .nav-links{display:none;}
@@ -94,7 +82,7 @@
       background: rgba(255,255,255,.06);
       border:1px solid var(--stroke);
       color:var(--muted);
-      font-weight:700;
+      font-weight:800;
       font-size:13px;
       width:fit-content;
     }
@@ -105,16 +93,12 @@
       line-height:1.05;
       letter-spacing:-.6px;
     }
-    .sub{
-      color:var(--muted);
-      font-size:16px;
-      max-width: 60ch;
-    }
+    .sub{color:var(--muted); font-size:16px; max-width: 60ch;}
     .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;}
     .mini{
       margin-top:14px;
       display:flex; gap:18px; flex-wrap:wrap;
-      color:var(--muted); font-weight:700; font-size:13px;
+      color:var(--muted); font-weight:800; font-size:13px;
     }
     .mini span{display:inline-flex; align-items:center; gap:8px;}
     .mini i{
@@ -136,12 +120,7 @@
     .hero-card{padding:18px;}
     .hero-card h3{margin:0 0 8px; font-size:16px;}
     .hero-card p{margin:0; color:var(--muted); font-size:14px;}
-    .hero-card .grid{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
+    .hero-card .grid{margin-top:14px; display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
     .pill{
       padding:14px;
       border-radius: 16px;
@@ -149,33 +128,15 @@
       background: rgba(10,15,20,.65);
     }
     .pill b{display:block; font-size:14px;}
-    .pill small{color:var(--muted); font-weight:700;}
+    .pill small{color:var(--muted); font-weight:800;}
 
     section{padding:44px 0;}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: clamp(22px, 3vw, 30px);
-      letter-spacing:-.4px;
-    }
-    .section-title p{
-      margin:0;
-      color:var(--muted);
-      max-width: 60ch;
-      font-weight:600;
-    }
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:18px;}
+    .section-title h2{margin:0; font-size: clamp(22px, 3vw, 30px); letter-spacing:-.4px;}
+    .section-title p{margin:0; color:var(--muted); max-width: 70ch; font-weight:650;}
 
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    @media (max-width: 900px){
-      .cards{grid-template-columns:1fr;}
-    }
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    @media (max-width: 900px){ .cards{grid-template-columns:1fr;} }
     .service{padding:16px;}
     .service .icon{
       width:42px;height:42px;border-radius:16px;
@@ -185,15 +146,11 @@
       font-weight:900;
     }
     .service h3{margin:12px 0 6px; font-size:16px;}
-    .service p{margin:0; color:var(--muted); font-weight:600; font-size:14px;}
-    .service ul{margin:10px 0 0; padding-left:18px; color:var(--muted); font-weight:650; font-size:13px;}
+    .service p{margin:0; color:var(--muted); font-weight:650; font-size:14px;}
+    .service ul{margin:10px 0 0; padding-left:18px; color:var(--muted); font-weight:700; font-size:13px;}
     .service li{margin:6px 0}
 
-    .how{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-    }
+    .how{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
     @media (max-width: 900px){ .how{grid-template-columns:1fr;} }
     .step{padding:18px;}
     .step b{display:flex; gap:10px; align-items:center;}
@@ -207,11 +164,7 @@
     }
     .step p{margin:10px 0 0; color:var(--muted); font-weight:650;}
 
-    .pricing{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
+    .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
     @media (max-width: 900px){ .pricing{grid-template-columns:1fr;} }
     .plan{padding:18px; position:relative; overflow:hidden;}
     .plan .badge{
@@ -220,12 +173,12 @@
       background: rgba(124,92,255,.18);
       border: 1px solid rgba(124,92,255,.28);
       color: rgba(255,255,255,.92);
-      font-weight:800; font-size:12px;
+      font-weight:900; font-size:12px;
     }
     .plan h3{margin:0 0 6px;}
-    .price{font-size:28px; font-weight:900; letter-spacing:-.6px; margin:8px 0;}
+    .price{font-size:28px; font-weight:950; letter-spacing:-.6px; margin:8px 0;}
     .plan p{margin:0 0 12px; color:var(--muted); font-weight:650;}
-    .plan ul{margin:0; padding-left:18px; color:var(--muted); font-weight:650; font-size:14px;}
+    .plan ul{margin:0; padding-left:18px; color:var(--muted); font-weight:700; font-size:14px;}
     .plan li{margin:8px 0}
     .plan .btn{width:100%; margin-top:14px;}
 
@@ -237,15 +190,13 @@
       border:1px solid var(--stroke);
       background: rgba(255,255,255,.04);
     }
-    summary{cursor:pointer; font-weight:850;}
+    summary{cursor:pointer; font-weight:900;}
     details p{margin:10px 0 0; color:var(--muted); font-weight:650;}
 
-    .contact{
-      display:grid; grid-template-columns: 1.1fr .9fr; gap:14px; align-items:stretch;
-    }
+    .contact{display:grid; grid-template-columns: 1.1fr .9fr; gap:14px; align-items:stretch;}
     @media (max-width: 900px){ .contact{grid-template-columns:1fr;} }
     .contact .panel{padding:18px;}
-    label{display:block; font-weight:800; margin:10px 0 6px; color:rgba(255,255,255,.9); font-size:13px;}
+    label{display:block; font-weight:900; margin:10px 0 6px; color:rgba(255,255,255,.9); font-size:13px;}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
@@ -254,12 +205,13 @@
       background: rgba(10,15,20,.6);
       color:var(--text);
       outline:none;
-      font-weight:650;
+      font-weight:700;
     }
     textarea{min-height:110px; resize:vertical;}
     .row{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
     @media (max-width: 520px){ .row{grid-template-columns:1fr;} }
     .fine{color:var(--muted); font-size:12px; font-weight:650; margin-top:10px;}
+
     footer{
       padding:26px 0 40px;
       border-top:1px solid var(--stroke);
@@ -282,8 +234,8 @@
         <div class="brand">
           <div class="logo" aria-hidden="true"></div>
           <div>
-            <div style="font-size:14px; font-weight:900; line-height:1.1;">Lagos Private Concierge</div>
-            <div style="font-size:12px; color:var(--muted); font-weight:700;">Discreet • Fast • Reliable</div>
+            <div style="font-size:14px; font-weight:950; line-height:1.1;">Lagos Private Concierge</div>
+            <div style="font-size:12px; color:var(--muted); font-weight:800;">Discreet • Fast • Reliable</div>
           </div>
         </div>
 
@@ -309,7 +261,7 @@
           <div class="tag"><span class="dot"></span> Concierge for Lagos visitors & locals</div>
           <h1>Move through Lagos like you’ve been here.</h1>
           <p class="sub">
-            Drivers, airport pickup, reservations, nightlife, experiences, villas, and last-minute fixes —
+            Airport pickup, private drivers, nightlife & VIP tables, reservations, experiences, and Detty December planning —
             handled end-to-end with discretion.
           </p>
 
@@ -338,15 +290,15 @@
             </div>
             <div class="pill">
               <b>Driver & car</b>
-              <small>Per day / per hour</small>
+              <small>Hourly / Full day</small>
             </div>
             <div class="pill">
-              <b>Nightlife tables</b>
-              <small>Clubs & lounges</small>
+              <b>Nightlife & VIP</b>
+              <small>Tables & access</small>
             </div>
             <div class="pill">
               <b>Experiences</b>
-              <small>Beach • Tours • Events</small>
+              <small>Beach • Boat • Tours</small>
             </div>
           </div>
 
@@ -364,8 +316,8 @@
     <div class="container">
       <div class="section-title">
         <div>
-          <h2>Services</h2>
-          <p>Pick one service or let us build a full itinerary for your trip.</p>
+          <h2>What we offer</h2>
+          <p>Pick one service or let us build a full itinerary for your stay.</p>
         </div>
       </div>
 
@@ -373,33 +325,36 @@
         <div class="card service">
           <div class="icon">🚗</div>
           <h3>Drivers & Transport</h3>
-          <p>Reliable drivers, clean cars, flexible timing. Daily or hourly.</p>
+          <p>Reliable drivers, clean cars, flexible timing. Hourly or full-day.</p>
           <ul>
-            <li>Airport pickup & drop-off</li>
-            <li>Private driver + security add-on</li>
-            <li>Inter-city travel (as available)</li>
+            <li>Airport pickup & drop-off (MMIA)</li>
+            <li>Private driver (hourly or full-day)</li>
+            <li>Group transport & night movements</li>
+            <li>Security escort (on request)</li>
           </ul>
         </div>
 
         <div class="card service">
           <div class="icon">🍽️</div>
-          <h3>Reservations</h3>
+          <h3>Reservations & Nightlife</h3>
           <p>Restaurants, lounges, events — we secure the best spots.</p>
           <ul>
-            <li>Dining reservations</li>
-            <li>VIP table bookings</li>
+            <li>Restaurant & lounge reservations</li>
+            <li>VIP table bookings (clubs/lounges)</li>
             <li>Event tickets & access</li>
+            <li>Birthday/group night coordination</li>
           </ul>
         </div>
 
         <div class="card service">
           <div class="icon">🏝️</div>
-          <h3>Experiences</h3>
+          <h3>Experiences & Planning</h3>
           <p>Curated Lagos moments with vetted partners.</p>
           <ul>
-            <li>Beach day & boat plans</li>
+            <li>Beach days & boat trips</li>
             <li>City tours & shopping runs</li>
-            <li>Detty December planning</li>
+            <li>Detty December full trip planning</li>
+            <li>Last-minute fixes & on-demand concierge</li>
           </ul>
         </div>
       </div>
@@ -443,14 +398,14 @@
       <div class="section-title">
         <div>
           <h2>Pricing</h2>
-          <p>Choose a level — or request a custom itinerary. (Replace these with your real pricing.)</p>
+          <p>Clear starting prices. Final pricing depends on dates, demand, and vendor availability.</p>
         </div>
       </div>
 
       <div class="pricing">
         <div class="card plan">
           <h3>Starter</h3>
-          <div class="price">₦ —</div>
+          <div class="price">₦25,000 <span style="font-size:14px; color:var(--muted); font-weight:900;">/ request</span></div>
           <p>Perfect for single bookings (pickup, reservation, one-off help).</p>
           <ul>
             <li>1–2 requests</li>
@@ -463,7 +418,7 @@
         <div class="card plan" style="border-color: rgba(124,92,255,.35);">
           <div class="badge">Most popular</div>
           <h3>Trip Pack</h3>
-          <div class="price">₦ —</div>
+          <div class="price">₦150,000 <span style="font-size:14px; color:var(--muted); font-weight:900;">/ trip</span></div>
           <p>For tourists doing Lagos properly — transport + bookings.</p>
           <ul>
             <li>Multi-day planning</li>
@@ -476,7 +431,7 @@
 
         <div class="card plan">
           <h3>VIP</h3>
-          <div class="price">₦ —</div>
+          <div class="price">₦350,000 <span style="font-size:14px; color:var(--muted); font-weight:900;">/ trip</span></div>
           <p>High-touch concierge with on-call support.</p>
           <ul>
             <li>Full itinerary build</li>
@@ -485,6 +440,17 @@
             <li>Discreet coordination</li>
           </ul>
           <a class="btn green" href="#contact">Get VIP</a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h3 style="margin:0 0 10px;">Popular add-ons</h3>
+        <div style="color:var(--muted); font-weight:700; line-height:1.8;">
+          • Airport pickup: from ₦40,000<br/>
+          • Private driver (full day): from ₦70,000<br/>
+          • VIP table booking assistance: from ₦25,000 (excludes venue spend)<br/>
+          • Boat / beach experience planning: from ₦30,000<br/>
+          • Security coordination: quote on request
         </div>
       </div>
     </div>
@@ -507,10 +473,10 @@
         </details>
         <details>
           <summary>What’s your cancellation policy?</summary>
-          <p>Deposits are typically non-refundable once vendors are confirmed. If you cancel early enough, we’ll try to recover what we can.</p>
+          <p>Deposits are non-refundable once vendors are confirmed. If you cancel early enough, we’ll try to recover what we can.</p>
         </details>
         <details>
-          <summary>Can you do everything for Detty December?</summary>
+          <summary>Can you handle Detty December?</summary>
           <p>Yes — transport, reservations, events, and itinerary planning. The earlier you book, the better the options.</p>
         </details>
         <details>
@@ -565,6 +531,7 @@
               <option>Reservations</option>
               <option>Nightlife / VIP table</option>
               <option>Experiences / itinerary</option>
+              <option>Detty December planning</option>
               <option>Custom (tell us in message)</option>
             </select>
 
@@ -579,17 +546,18 @@
         <div class="card panel" style="background: linear-gradient(180deg, rgba(124,92,255,.10), rgba(255,255,255,.03));">
           <h3 style="margin:0 0 10px;">Contact</h3>
           <p style="margin:0 0 12px; color:var(--muted); font-weight:650;">
-            Prefer WhatsApp? That’s fastest. Email works too for longer requests.
+            WhatsApp is fastest. Email works too for detailed requests.
           </p>
 
           <div style="display:grid; gap:10px;">
-            <a class="btn green" id="whatsAppBtn2" href="#">WhatsApp: +234 XX XXX XXXX</a>
-            <a class="btn" href="mailto:hello@lagosprivateconcierge.com">Email: hello@lagosprivateconcierge.com</a>
+            <a class="btn green" id="whatsAppBtn2" href="#">WhatsApp: <span id="phoneDisplay"></span></a>
+            <a class="btn" id="callBtn" href="#">Call: <span id="phoneDisplay2"></span></a>
+            <a class="btn" id="emailBtn" href="#">Email: <span id="emailDisplay"></span></a>
           </div>
 
           <div style="margin-top:16px; padding:14px; border-radius:16px; border:1px solid var(--stroke); background: rgba(10,15,20,.55);">
             <b style="display:block; margin-bottom:6px;">Typical response times</b>
-            <div style="color:var(--muted); font-weight:650;">
+            <div style="color:var(--muted); font-weight:700;">
               • Normal: within 24 hours<br/>
               • Urgent: same day (availability dependent)
             </div>
@@ -618,31 +586,43 @@
   </footer>
 
   <script>
-    // ✅ EDIT THESE TWO:
-    const WHATSAPP_NUMBER = "234XXXXXXXXXX"; // digits only, e.g. 2348012345678
-    const BRAND_NAME = "Lagos Private Concierge";
+    // ✅ EDIT ONLY THESE 3 LINES:
+    const WHATSAPP_NUMBER = "2348012345678";          // digits only (no +, no spaces)
+    const DISPLAY_PHONE   = "+234 801 234 5678";      // how it shows on the website
+    const CONTACT_EMAIL   = "lagosprivateconcierge.bookings@gmail.com";
 
+    const BRAND_NAME = "Lagos Private Concierge";
     const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
     const quickMessage =
-      `Hi ${BRAND_NAME}, I want to book concierge services.\\n\\n` +
-      `Dates: ___\\nGroup size: ___\\nNeeds: ___\\nBudget range (optional): ___\\n\\n` +
+      `Hi ${BRAND_NAME}, I want to book concierge services.\n\n` +
+      `Dates: ___\nGroup size: ___\nNeeds: ___\nBudget range (optional): ___\n\n` +
       `Please send options and pricing.`;
 
     document.getElementById("whatsAppBtn").href = waLink(quickMessage);
     document.getElementById("whatsAppBtn2").href = waLink(quickMessage);
+
+    // Contact display + links
+    document.getElementById("phoneDisplay").textContent = DISPLAY_PHONE;
+    document.getElementById("phoneDisplay2").textContent = DISPLAY_PHONE;
+    document.getElementById("emailDisplay").textContent = CONTACT_EMAIL;
+
+    // tel: needs digits with +, no spaces
+    const telDigits = "+" + WHATSAPP_NUMBER;
+    document.getElementById("callBtn").href = `tel:${telDigits}`;
+    document.getElementById("emailBtn").href = `mailto:${CONTACT_EMAIL}`;
 
     document.getElementById("quoteForm").addEventListener("submit", (e) => {
       e.preventDefault();
       const data = Object.fromEntries(new FormData(e.target).entries());
 
       const msg =
-        `Hi ${BRAND_NAME}, I’d like a quote.\\n\\n` +
-        `Name: ${data.name}\\n` +
-        `WhatsApp: ${data.phone}\\n` +
-        `Dates: ${data.dates}\\n` +
-        `Group size: ${data.group}\\n` +
-        `Service: ${data.service}\\n\\n` +
+        `Hi ${BRAND_NAME}, I’d like a quote.\n\n` +
+        `Name: ${data.name}\n` +
+        `WhatsApp: ${data.phone}\n` +
+        `Dates: ${data.dates}\n` +
+        `Group size: ${data.group}\n` +
+        `Service: ${data.service}\n\n` +
         `Details: ${data.msg}`;
 
       window.open(waLink(msg), "_blank");
