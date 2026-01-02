@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Lagos Private Concierge</title>
-  <meta name="description" content="Luxury concierge services in Lagos – airport pickup, private drivers, nightlife & VIP tables, reservations, experiences, and Detty December planning." />
+  <meta name="description" content="Luxury concierge in Lagos — airport pickup, private drivers, nightlife & VIP tables, reservations, experiences, and Detty December trip planning. Fast, discreet, reliable." />
   <style>
     :root{
       --bg:#0b0f14;
+      --panel:#0f1621;
       --text:#e9eef6;
       --muted:#a9b4c4;
       --brand:#7c5cff;
@@ -17,169 +18,653 @@
       --radius:18px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: linear-gradient(180deg, #070a0f, var(--bg));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.25), transparent 55%),
+                  radial-gradient(1000px 600px at 80% 0%, rgba(34,197,94,.18), transparent 55%),
+                  linear-gradient(180deg, #070a0f, var(--bg));
       color:var(--text);
+      line-height:1.45;
     }
-    a{text-decoration:none;color:inherit}
-    .container{max-width:1100px;margin:auto;padding:0 20px}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1120px; margin:0 auto; padding:0 20px;}
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,10,15,.6);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0;}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px;}
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,92,255,.9), rgba(34,197,94,.8));
+      box-shadow: 0 12px 30px rgba(124,92,255,.18);
+    }
+    .nav-links{display:flex; gap:18px; align-items:center;}
+    .nav-links a{color:var(--muted); font-weight:700; font-size:14px;}
+    .nav-links a:hover{color:var(--text)}
     .btn{
-      padding:12px 18px;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
       border-radius:999px;
-      font-weight:800;
-      display:inline-block;
       border:1px solid var(--stroke);
-      background:rgba(255,255,255,.07);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:850;
+      cursor:pointer;
+      transition:.2s ease;
+      user-select:none;
+      white-space:nowrap;
     }
-    .btn.green{background:#22c55e;color:#000;border:none}
-    .btn.primary{background:#7c5cff;border:none}
-    header{padding:70px 0}
-    h1{font-size:48px;margin-bottom:10px}
-    h2{font-size:32px}
-    p{color:var(--muted)}
-    section{padding:60px 0;border-top:1px solid var(--stroke)}
-    .grid{display:grid;gap:20px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    @media(max-width:900px){.grid-3{grid-template-columns:1fr}}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09);}
+    .btn.primary{
+      border-color: rgba(124,92,255,.55);
+      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(124,92,255,.60));
+      box-shadow: 0 16px 40px rgba(124,92,255,.22);
+    }
+    .btn.green{
+      border-color: rgba(34,197,94,.55);
+      background: linear-gradient(135deg, rgba(34,197,94,.9), rgba(34,197,94,.55));
+      box-shadow: 0 16px 40px rgba(34,197,94,.16);
+      color:#07110a;
+    }
+
+    /* HERO */
+    .hero{padding:64px 0 28px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:28px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr;}
+      .nav-links{display:none;}
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--stroke);
+      color:var(--muted);
+      font-weight:850;
+      font-size:13px;
+      width:fit-content;
+    }
+    .tag .dot{width:8px;height:8px;border-radius:999px;background:var(--brand2); box-shadow:0 0 0 6px rgba(34,197,94,.12);}
+    h1{
+      margin:16px 0 10px;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .sub{color:var(--muted); font-size:16px; max-width: 60ch;}
+    .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;}
+    .mini{
+      margin-top:14px;
+      display:flex; gap:18px; flex-wrap:wrap;
+      color:var(--muted); font-weight:850; font-size:13px;
+    }
+    .mini span{display:inline-flex; align-items:center; gap:8px;}
+    .mini i{
+      width:20px;height:20px; border-radius:8px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-style:normal;
+      color:rgba(255,255,255,.85);
+      font-size:12px;
+    }
+
+    /* CARDS */
     .card{
-      background:rgba(255,255,255,.05);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
       border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      padding:20px;
-      box-shadow:var(--shadow);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
-    footer{padding:30px 0;color:var(--muted);border-top:1px solid var(--stroke)}
+
+    .hero-card{padding:18px;}
+    .hero-card h3{margin:0 0 8px; font-size:16px;}
+    .hero-card p{margin:0; color:var(--muted); font-size:14px;}
+    .hero-card .grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .pill{
+      padding:14px;
+      border-radius: 16px;
+      border:1px solid var(--stroke);
+      background: rgba(10,15,20,.65);
+    }
+    .pill b{display:block; font-size:14px;}
+    .pill small{color:var(--muted); font-weight:850;}
+
+    section{padding:44px 0;}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: clamp(22px, 3vw, 30px);
+      letter-spacing:-.4px;
+    }
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      max-width: 70ch;
+      font-weight:650;
+    }
+
+    /* SERVICES */
+    .cards{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    @media (max-width: 900px){ .cards{grid-template-columns:1fr;} }
+    .service{padding:16px;}
+    .service .icon{
+      width:42px;height:42px;border-radius:16px;
+      background: rgba(124,92,255,.15);
+      border:1px solid rgba(124,92,255,.25);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950;
+    }
+    .service h3{margin:12px 0 6px; font-size:16px;}
+    .service p{margin:0; color:var(--muted); font-weight:650; font-size:14px;}
+    .service ul{margin:10px 0 0; padding-left:18px; color:var(--muted); font-weight:750; font-size:13px;}
+    .service li{margin:6px 0}
+
+    /* HOW */
+    .how{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+    @media (max-width: 900px){ .how{grid-template-columns:1fr;} }
+    .step{padding:18px;}
+    .step b{display:flex; gap:10px; align-items:center;}
+    .num{
+      width:26px;height:26px;border-radius:10px;
+      background: rgba(255,255,255,.07);
+      border:1px solid var(--stroke);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:950;
+      color:rgba(255,255,255,.9);
+    }
+    .step p{margin:10px 0 0; color:var(--muted); font-weight:650;}
+
+    /* PRICING */
+    .pricing{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    @media (max-width: 900px){ .pricing{grid-template-columns:1fr;} }
+    .plan{padding:18px; position:relative; overflow:hidden;}
+    .plan .badge{
+      position:absolute; top:14px; right:14px;
+      padding:8px 10px; border-radius:999px;
+      background: rgba(124,92,255,.18);
+      border: 1px solid rgba(124,92,255,.28);
+      color: rgba(255,255,255,.92);
+      font-weight:900; font-size:12px;
+    }
+    .plan h3{margin:0 0 6px;}
+    .price{font-size:28px; font-weight:950; letter-spacing:-.6px; margin:8px 0;}
+    .plan p{margin:0 0 12px; color:var(--muted); font-weight:650;}
+    .plan ul{margin:0; padding-left:18px; color:var(--muted); font-weight:750; font-size:14px;}
+    .plan li{margin:8px 0}
+    .plan .btn{width:100%; margin-top:14px;}
+
+    /* FAQ */
+    .faq{display:grid; grid-template-columns: 1fr 1fr; gap:14px;}
+    @media (max-width: 900px){ .faq{grid-template-columns:1fr;} }
+    details{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+    }
+    summary{cursor:pointer; font-weight:900;}
+    details p{margin:10px 0 0; color:var(--muted); font-weight:650;}
+
+    /* CONTACT */
+    .contact{display:grid; grid-template-columns: 1.1fr .9fr; gap:14px; align-items:stretch;}
+    @media (max-width: 900px){ .contact{grid-template-columns:1fr;} }
+    .contact .panel{padding:18px;}
+    label{display:block; font-weight:900; margin:10px 0 6px; color:rgba(255,255,255,.9); font-size:13px;}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(10,15,20,.6);
+      color:var(--text);
+      outline:none;
+      font-weight:750;
+    }
+    textarea{min-height:110px; resize:vertical;}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    @media (max-width: 520px){ .row{grid-template-columns:1fr;} }
+    .fine{color:var(--muted); font-size:12px; font-weight:650; margin-top:10px;}
+
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--stroke);
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+    }
+    .footer-inner{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center;}
+    .links{display:flex; gap:14px; flex-wrap:wrap;}
+    .links a{color:var(--muted);}
+    .links a:hover{color:var(--text);}
   </style>
 </head>
 
 <body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <div style="font-size:14px; font-weight:950; line-height:1.1;">Lagos Private Concierge</div>
+            <div style="font-size:12px; color:var(--muted); font-weight:800;">Discreet • Fast • Reliable</div>
+          </div>
+        </div>
 
-<header>
-  <div class="container">
-    <h1>Move through Lagos like you’ve been here.</h1>
-    <p>
-      Airport pickup, private drivers, nightlife & VIP tables, reservations,
-      experiences, and Detty December planning — handled discreetly.
-    </p>
-    <br>
-    <a class="btn green" href="#contact">WhatsApp to Book</a>
-    <a class="btn" href="#pricing">View Pricing</a>
-  </div>
-</header>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+          <a class="btn green" href="#contact">Book now</a>
+        </div>
 
-<section id="services">
-  <div class="container">
-    <h2>What We Offer</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>🚗 Drivers & Transport</h3>
-        <ul>
-          <li>Airport pickup & drop-off (MMIA)</li>
-          <li>Private driver (hourly or full-day)</li>
-          <li>Group & night transport</li>
-          <li>Security escort (on request)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🍾 Nightlife & Reservations</h3>
-        <ul>
-          <li>VIP club & lounge tables</li>
-          <li>Restaurant reservations</li>
-          <li>Event tickets & access</li>
-          <li>Birthday & group nights</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>🏝️ Experiences & Planning</h3>
-        <ul>
-          <li>Beach days & boat trips</li>
-          <li>City tours & shopping</li>
-          <li>Detty December itineraries</li>
-          <li>Last-minute concierge fixes</li>
-        </ul>
+        <a class="btn primary" href="#contact">Get a quote</a>
       </div>
     </div>
   </div>
-</section>
 
-<section id="pricing">
-  <div class="container">
-    <h2>Pricing</h2>
-    <p>Final pricing depends on dates, demand, and availability.</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="tag"><span class="dot"></span> Concierge for Lagos visitors & locals</div>
+          <h1>Move through Lagos like you’ve been here.</h1>
+          <p class="sub">
+            Airport pickup, private drivers, nightlife & VIP tables, reservations, experiences, and Detty December planning —
+            handled end-to-end with discretion.
+          </p>
 
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Starter</h3>
-        <h2>₦32,500</h2>
-        <p>Single booking support</p>
-        <ul>
-          <li>Airport pickup OR reservation</li>
-          <li>1–2 requests</li>
-          <li>24h response</li>
-        </ul>
-      </div>
+          <div class="cta-row">
+            <a class="btn green" id="whatsAppBtn" href="#">WhatsApp to book</a>
+            <a class="btn" href="#services">See services</a>
+            <a class="btn" href="#pricing">View pricing</a>
+          </div>
 
-      <div class="card">
-        <h3>Trip Pack</h3>
-        <h2>₦195,000</h2>
-        <p>Most popular for tourists</p>
-        <ul>
-          <li>Multi-day planning</li>
-          <li>Transport coordination</li>
-          <li>Nightlife & reservations</li>
-          <li>Priority support</li>
-        </ul>
-      </div>
+          <div class="mini">
+            <span><i>⚡</i> Fast response</span>
+            <span><i>🛡️</i> Discreet support</span>
+            <span><i>🤝</i> Vetted partners</span>
+            <span><i>📍</i> Lagos, NG</span>
+          </div>
+        </div>
 
-      <div class="card">
-        <h3>VIP Concierge</h3>
-        <h2>₦455,000</h2>
-        <p>High-touch premium service</p>
-        <ul>
-          <li>Full itinerary build</li>
-          <li>On-call WhatsApp support</li>
-          <li>Premium access</li>
-          <li>Discreet coordination</li>
-        </ul>
+        <div class="card hero-card">
+          <h3>Quick Booking</h3>
+          <p>Tell us your dates + what you need. We’ll reply with options and pricing.</p>
+
+          <div class="grid">
+            <div class="pill">
+              <b>Airport pickup</b>
+              <small>MMIA → Hotel</small>
+            </div>
+            <div class="pill">
+              <b>Driver & car</b>
+              <small>Hourly / Full day</small>
+            </div>
+            <div class="pill">
+              <b>Nightlife & VIP</b>
+              <small>Tables & access</small>
+            </div>
+            <div class="pill">
+              <b>Experiences</b>
+              <small>Beach • Boat • Tours</small>
+            </div>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contact" style="flex:1;">Request a quote</a>
+            <a class="btn" href="#how" style="flex:1;">How it works</a>
+          </div>
+        </div>
       </div>
     </div>
+  </header>
 
-    <br>
-    <div class="card">
-      <h3>Popular Add-Ons</h3>
-      <p>
-        Airport pickup: from ₦52,000<br>
-        Private driver (full day): from ₦91,000<br>
-        VIP table assistance: from ₦32,500 (venue spend excluded)<br>
-        Boat / beach planning: from ₦39,000<br>
-        Security coordination: Quote on request
-      </p>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>What we offer</h2>
+          <p>Pick one service or let us handle your whole trip end-to-end.</p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card service">
+          <div class="icon">🚗</div>
+          <h3>Drivers & Transport</h3>
+          <p>Reliable drivers, clean cars, flexible timing. Hourly or full-day.</p>
+          <ul>
+            <li>Airport pickup & drop-off (MMIA)</li>
+            <li>Private driver (hourly or full-day)</li>
+            <li>Group transport & night movements</li>
+            <li>Security escort (on request)</li>
+          </ul>
+        </div>
+
+        <div class="card service">
+          <div class="icon">🍾</div>
+          <h3>Reservations & Nightlife</h3>
+          <p>Restaurants, lounges, events — we secure the best spots.</p>
+          <ul>
+            <li>Restaurant & lounge reservations</li>
+            <li>VIP table bookings (clubs/lounges)</li>
+            <li>Event tickets & access</li>
+            <li>Birthday/group night coordination</li>
+          </ul>
+        </div>
+
+        <div class="card service">
+          <div class="icon">🏝️</div>
+          <h3>Experiences & Planning</h3>
+          <p>Curated Lagos moments with vetted partners.</p>
+          <ul>
+            <li>Beach days & boat trips</li>
+            <li>City tours & shopping runs</li>
+            <li>Detty December full trip planning</li>
+            <li>Last-minute fixes & on-demand concierge</li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <div class="container">
-    <h2>Contact & Bookings</h2>
-    <p>Fastest response via WhatsApp.</p>
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>How it works</h2>
+          <p>Simple process. No long back-and-forth.</p>
+        </div>
+      </div>
 
-    <a class="btn green" href="https://wa.me/447746560094">WhatsApp: +44 7746 560094</a>
-    <br><br>
-    <a class="btn" href="tel:+447746560094">Call: +44 7746 560094</a>
-    <br><br>
-    <a class="btn" href="mailto:lagosprivateconcierge.bookings@gmail.com">
-      Email: lagosprivateconcierge.bookings@gmail.com
-    </a>
-  </div>
-</section>
+      <div class="how">
+        <div class="card step">
+          <b><span class="num">1</span> Tell us what you need</b>
+          <p>Dates, group size, and priorities (driver, nightlife, reservations, experiences). Share a budget range if you want faster options.</p>
+        </div>
+        <div class="card step">
+          <b><span class="num">2</span> We send options</b>
+          <p>You’ll get curated options + clear pricing. Choose what you like and we’ll confirm availability.</p>
+        </div>
+        <div class="card step">
+          <b><span class="num">3</span> Secure your booking</b>
+          <p>Pay a deposit to lock in. Balance is due before service begins (or as agreed).</p>
+        </div>
+        <div class="card step">
+          <b><span class="num">4</span> Enjoy Lagos</b>
+          <p>We handle coordination and support you throughout your booking — discreetly and professionally.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <div class="container">
-    © <script>document.write(new Date().getFullYear())</script> Lagos Private Concierge
-  </div>
-</footer>
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Pricing</h2>
+          <p>Clear starting prices. Final pricing depends on dates, demand, and vendor availability.</p>
+        </div>
+      </div>
 
+      <div class="pricing">
+        <div class="card plan">
+          <h3>Starter</h3>
+          <div class="price">₦32,500 <span style="font-size:14px; color:var(--muted); font-weight:900;">/ request</span></div>
+          <p>Perfect for single bookings (pickup, reservation, one-off help).</p>
+          <ul>
+            <li>1–2 requests</li>
+            <li>Basic support</li>
+            <li>Response within 24 hours</li>
+          </ul>
+          <a class="btn" href="#contact">Get Starter</a>
+        </div>
+
+        <div class="card plan" style="border-color: rgba(124,92,255,.35);">
+          <div class="badge">Most popular</div>
+          <h3>Trip Pack</h3>
+          <div class="price">₦195,000 <span style="font-size:14px; color:var(--muted); font-weight:900;">/ trip</span></div>
+          <p>For tourists doing Lagos properly — transport + bookings.</p>
+          <ul>
+            <li>Multi-day planning</li>
+            <li>Driver coordination</li>
+            <li>Reservations + nightlife</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="btn primary" href="#contact">Get Trip Pack</a>
+        </div>
+
+        <div class="card plan">
+          <h3>VIP Concierge</h3>
+          <div class="price">₦455,000 <span style="font-size:14px; color:var(--muted); font-weight:900;">/ trip</span></div>
+          <p>High-touch concierge with on-call support.</p>
+          <ul>
+            <li>Full itinerary build</li>
+            <li>Fast response window</li>
+            <li>Premium partner access</li>
+            <li>Discreet coordination</li>
+          </ul>
+          <a class="btn green" href="#contact">Get VIP</a>
+        </div>
+      </div>
+
+      <div class="card" style="padding:18px; margin-top:14px;">
+        <h3 style="margin:0 0 10px;">Popular add-ons</h3>
+        <div style="color:var(--muted); font-weight:750; line-height:1.8;">
+          • Airport pickup: from ₦52,000<br/>
+          • Private driver (full day): from ₦91,000<br/>
+          • VIP table booking assistance: from ₦32,500 (excludes venue spend)<br/>
+          • Boat / beach experience planning: from ₦39,000<br/>
+          • Security coordination: quote on request
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>FAQ</h2>
+          <p>Clear expectations = smooth bookings.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Do you require a deposit?</summary>
+          <p>Yes. Deposits secure availability. For last-minute bookings, full payment may be required.</p>
+        </details>
+        <details>
+          <summary>What’s your cancellation policy?</summary>
+          <p>Deposits are non-refundable once vendors are confirmed. If you cancel early enough, we’ll try to recover what we can.</p>
+        </details>
+        <details>
+          <summary>Can you handle Detty December?</summary>
+          <p>Yes — transport, reservations, events, and itinerary planning. The earlier you book, the better the options.</p>
+        </details>
+        <details>
+          <summary>How do I book?</summary>
+          <p>Use the form below or WhatsApp. Tell us dates, group size, and what you want handled.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Request a quote</h2>
+          <p>Fill this in and we’ll reply with options and pricing.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="card panel">
+          <form id="quoteForm">
+            <div class="row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="phone">WhatsApp number</label>
+                <input id="phone" name="phone" placeholder="+44 / +234 ..." required />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="dates">Dates</label>
+                <input id="dates" name="dates" placeholder="e.g. Dec 12 – Dec 20" required />
+              </div>
+              <div>
+                <label for="group">Group size</label>
+                <select id="group" name="group">
+                  <option>1</option><option>2</option><option>3–4</option><option>5–7</option><option>8+</option>
+                </select>
+              </div>
+            </div>
+
+            <label for="service">What do you need?</label>
+            <select id="service" name="service">
+              <option>Airport pickup</option>
+              <option>Driver & transport</option>
+              <option>Reservations</option>
+              <option>Nightlife / VIP table</option>
+              <option>Experiences / itinerary</option>
+              <option>Detty December planning</option>
+              <option>Custom (tell us in message)</option>
+            </select>
+
+            <label for="msg">Details</label>
+            <textarea id="msg" name="msg" placeholder="Tell us your plans, budget range, locations, preferences, and any deadlines." required></textarea>
+
+            <button class="btn green" type="submit">Send via WhatsApp</button>
+            <div class="fine">This form sends a pre-filled WhatsApp message (no data stored on this site).</div>
+          </form>
+        </div>
+
+        <div class="card panel" style="background: linear-gradient(180deg, rgba(124,92,255,.10), rgba(255,255,255,.03));">
+          <h3 style="margin:0 0 10px;">Contact</h3>
+          <p style="margin:0 0 12px; color:var(--muted); font-weight:650;">
+            WhatsApp is fastest. Email works too for detailed requests.
+          </p>
+
+          <div style="display:grid; gap:10px;">
+            <a class="btn green" id="whatsAppBtn2" href="#">WhatsApp: <span id="phoneDisplay"></span></a>
+            <a class="btn" id="callBtn" href="#">Call: <span id="phoneDisplay2"></span></a>
+            <a class="btn" id="emailBtn" href="#">Email: <span id="emailDisplay"></span></a>
+          </div>
+
+          <div style="margin-top:16px; padding:14px; border-radius:16px; border:1px solid var(--stroke); background: rgba(10,15,20,.55);">
+            <b style="display:block; margin-bottom:6px;">Typical response times</b>
+            <div style="color:var(--muted); font-weight:750;">
+              • Normal: within 24 hours<br/>
+              • Urgent: same day (availability dependent)
+            </div>
+          </div>
+
+          <div style="margin-top:14px; color:var(--muted); font-weight:650; font-size:13px;">
+            <b style="color:rgba(255,255,255,.9);">Note:</b> Pricing varies by date, demand, and vendor availability.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Lagos Private Concierge. All rights reserved.</div>
+        <div class="links">
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // LOCKED (your details)
+    const WHATSAPP_NUMBER = "447746560094"; // digits only for WhatsApp
+    const DISPLAY_PHONE   = "+44 7746 560094";
+    const CONTACT_EMAIL   = "lagosprivateconcierge.bookings@gmail.com";
+
+    const BRAND_NAME = "Lagos Private Concierge";
+    const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+
+    const quickMessage =
+      `Hi ${BRAND_NAME}, I want to book concierge services.\n\n` +
+      `Dates: ___\nGroup size: ___\nNeeds: ___\nBudget range (optional): ___\n\n` +
+      `Please send options and pricing.`;
+
+    // Top buttons
+    document.getElementById("whatsAppBtn").href = waLink(quickMessage);
+    document.getElementById("whatsAppBtn2").href = waLink(quickMessage);
+
+    // Contact display + links
+    document.getElementById("phoneDisplay").textContent = DISPLAY_PHONE;
+    document.getElementById("phoneDisplay2").textContent = DISPLAY_PHONE;
+    document.getElementById("emailDisplay").textContent = CONTACT_EMAIL;
+
+    // tel:
+    document.getElementById("callBtn").href = `tel:+${WHATSAPP_NUMBER}`;
+    document.getElementById("emailBtn").href = `mailto:${CONTACT_EMAIL}`;
+
+    // Form -> WhatsApp
+    document.getElementById("quoteForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+
+      const msg =
+        `Hi ${BRAND_NAME}, I’d like a quote.\n\n` +
+        `Name: ${data.name}\n` +
+        `WhatsApp: ${data.phone}\n` +
+        `Dates: ${data.dates}\n` +
+        `Group size: ${data.group}\n` +
+        `Service: ${data.service}\n\n` +
+        `Details: ${data.msg}`;
+
+      window.open(waLink(msg), "_blank");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
